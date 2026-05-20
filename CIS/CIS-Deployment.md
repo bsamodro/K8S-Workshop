@@ -9,7 +9,6 @@ login as ubuntu
 su - ubuntu
 ```
 ---
-
 ### Prepare CIS environment in k8s cluster
 1. Clone the GitHub repository
    ```bash
@@ -29,6 +28,36 @@ su - ubuntu
    ```bash
    kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=f5demo#1 --from-literal=url=10.1.10.7
    ```
+---
+### deploy CIS
+1. Review CIS configuration
+   ```bash
+   cat ~/K8S-Workshop/CIS/BigIPCtrl/k8s-bigip-ctlr.yaml 
+   ```
+2. Deploy CIS yaml
+   ```bash
+   kubectl apply -f K8S-Workshop/CIS/BigIPCtrl/k8s-bigip-ctlr.yaml
+   ```
+3. Check CIS log
+   ```bash
+   kubectl logs -f -l app=k8s-bigip-ctlr-deployment -n kube-system --prefix=true
+   ```
+   Ctrl + C to stop logs
+   or
+   ```bash
+   kubectl logs -l app=k8s-bigip-ctlr-deployment -n kube-system --prefix=true
+   ```
+4. Check pod status
+   ```bash
+   kubectl get pods -n kube-system
+   ```
+Notes you will see this logs 
+
+which means CIS cannot see Calico Block Allocation thus CIS cannot provision route in bigip
+to make CIS able to add route, we need to label map calico block ip into podCIDR using folowing
+
+5. Run this Script 
+   
 
 ---
 ### Prepare Automatic routing in k8s cluster

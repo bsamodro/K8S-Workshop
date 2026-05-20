@@ -1,1 +1,126 @@
-
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arcadia
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: arcadia-app2
+  name: arcadia-app2
+  namespace: arcadia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcadia-app2
+  template:
+    metadata:
+      labels:
+        app: arcadia-app2
+    spec:
+      containers:
+      - image: doddywid/arcadia-app2:v6
+        name: arcadia-app2
+        env:
+        - name: arcadia_appsite
+          value: "my-site-name"
+        - name: arcadia_backend_proto
+          value: "http://"
+        - name: arcadia_backend_domain
+          value: "arcadia-backend-svc:8080"
+      imagePullSecrets:
+      - name: dockerhub-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: arcadia-app3
+  name: arcadia-app3
+  namespace: arcadia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcadia-app3
+  template:
+    metadata:
+      labels:
+        app: arcadia-app3
+    spec:
+      containers:
+      - image: doddywid/arcadia-app3:v6
+        name: arcadia-app3
+        env:
+        - name: arcadia_appsite
+          value: "my-site-name"
+      imagePullSecrets:
+      - name: dockerhub-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: arcadia
+  name: arcadia-backend
+  namespace: arcadia
+  labels:
+    app: arcadia-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcadia-backend
+  template:
+    metadata:
+      labels:
+        app: arcadia-backend
+    spec:
+      containers:
+      - image: doddywid/arcadia-backend:v6
+        name: arcadia-backend
+        env:
+        - name: arcadia_appsite
+          value: "my-site-name"
+      imagePullSecrets:
+      - name: dockerhub-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: arcadia-mainapp
+  name: arcadia-mainapp
+  namespace: arcadia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcadia-mainapp
+  template:
+    metadata:
+      labels:
+        app: arcadia-mainapp
+    spec:
+      containers:
+      - image: doddywid/arcadia-mainapp:v6
+        name: arcadia-mainapp
+        env:
+        - name: arcadia_appsite
+          value: "my-site-name"
+        - name: arcadia_app2_proto
+          value: "http://"
+        - name: arcadia_app2_domain
+          value: "arcadia-app2-svc:8080"
+        - name: arcadia_app3_proto
+          value: "http://"
+        - name: arcadia_app3_domain
+          value: "arcadia-app3-svc:8080"
+        - name: arcadia_backend_proto
+          value: "http://"
+        - name: arcadia_backend_domain
+          value: "arcadia-backend-svc:8080"
+      imagePullSecrets:
+      - name: dockerhub-secret
+---

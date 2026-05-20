@@ -8,6 +8,7 @@ Deploy and Validate Arcadia Application
 On the k8s-master1 webshell, run the following command:
 
 1. Apply Arcadia Deployment yaml
+
    ```bash
    kubectl apply -f ~/K8S-Workshop/CIS/Arcadia/arcadia-deployment.yaml 
    ```

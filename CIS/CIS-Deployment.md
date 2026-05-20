@@ -1,8 +1,9 @@
 ## CIS - OpenShift Workshop - CIS Deployment Guide
 
-#### This document explains how to install CIS on OCP Cluster, Integrate to BigIP and Deploy Service with LTM as Ingress Controller
+#### This document explains how to install CIS on k8s Cluster, Integrate to BigIP and Deploy Service with LTM as Ingress 
 
 ---
+### Installing CIS Manually in OCP Cluster
 
 ### Installing CIS Manually in OCP Cluster
 

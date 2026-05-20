@@ -19,7 +19,15 @@ su - ubuntu
    ```bash
    kubectl create -f k8s-bigip-ctlr/docs/config_examples/rbac/k8s_rbac.yml
    ```
-3. 
+3. Optionally, Install Custom Resource Definitions for CIS Controller if you are using custom resources 
+   ```bash
+   export CIS_VERSION=v2.20.3
+   kubectl create -f https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/${CIS_VERSION}/docs/config_examples/customResourceDefinitions/customresourcedefinitions.yml
+   ```
+4. Create the kubernetes secret with BIG IP credentials
+   ```bash
+   kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=f5demo#1 --from-literal=url=<10.1.10.7
+   ```
 
 ---
 ### Prepare Automatic routing in k8s cluster

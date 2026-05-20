@@ -1,12 +1,20 @@
 ## CIS Deployment Guide
 
 #### This document explains how to install CIS on k8s Cluster, Integrate to BigIP and Deploy Service with LTM as Ingress 
-
 ---
+Login to k8s-master1 - Webshell
+
+login as ubuntu
+```bash
+su - ubuntu
+```
+---
+
 ### Prepare CIS environment in k8s cluster
 1. Clone the GitHub repository
    ```bash
-   cd /home/cloud-user/CIS-Workshop
+   git clone https://github.com/F5Networks/k8s-bigip-ctlr.git
+   cd k8s-bigip-ctlr.
    ```
 2. 
 

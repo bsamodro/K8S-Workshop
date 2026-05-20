@@ -19,9 +19,10 @@ Use the TMUI link of bigipA
 CIS can add a static route on the BIG-IP to reach k8s pod services via the k8s nodes.
 
 - Click System -> Select Users -> Select Partition List -> Click "Plus" Sign
+<img width="436" height="702" alt="Image" src="https://github.com/user-attachments/assets/07efe9b5-7562-433e-b57e-df9dd061a44d" />
 
 - Add k8s-cis partition
-<img width="1023" height="686" alt="Image" src="https://github.com/user-attachments/assets/6a8513de-2c85-465b-bf12-6d3ca8eeb859" />
+<img width="568" height="575" alt="Image" src="https://github.com/user-attachments/assets/76120802-5a91-48e4-8612-9bd7e6fe5f92" />
 
 ---
 

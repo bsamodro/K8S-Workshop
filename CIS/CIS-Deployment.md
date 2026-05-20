@@ -14,9 +14,12 @@ su - ubuntu
 1. Clone the GitHub repository
    ```bash
    git clone https://github.com/F5Networks/k8s-bigip-ctlr.git
-   cd k8s-bigip-ctlr.
    ```
-2. 
+2. Create a Cluster Role, Cluster Role Binding and Service account for CIS Controller
+   ```bash
+   kubectl create -f k8s-bigip-ctlr/docs/config_examples/rbac/k8s_rbac.yml
+   ```
+3. 
 
 ---
 ### Prepare Automatic routing in k8s cluster

@@ -30,7 +30,7 @@ CIS can add a static route on the BIG-IP to reach k8s pod services via the k8s n
 
 - Click Security -> Application Security -> Security Policies -> Policies List
   
-- Configure Policy :
+  Configure Policy :
 - Policy Name : arcadia-waf
 - Policy Template : Rapid Deployment Policy
 - Click Save

@@ -14,6 +14,7 @@ su - ubuntu
 1. Clone the GitHub repository
    ```bash
    git clone https://github.com/F5Networks/k8s-bigip-ctlr.git
+   git clone https://github.com/bsamodro/K8S-Workshop.git
    ```
 2. Create a Cluster Role, Cluster Role Binding and Service account for CIS Controller
    ```bash

@@ -38,5 +38,13 @@ CIS can add a static route on the BIG-IP to reach k8s pod services via the k8s n
 - Click Save
 <img width="1067" height="631" alt="Image" src="https://github.com/user-attachments/assets/831d86ea-c50e-4a35-b135-6953f6e70123" />
 
+- Click Local Traffic -> Address Translation -> SNAT Pool List
+<img width="426" height="644" alt="Image" src="https://github.com/user-attachments/assets/5b46e519-88f2-4246-8b06-8a20eb16a4e6" />
+
+  Configure
+- Name : arcadia-snatpool
+- IP Address : 10.1.10.51
+<img width="585" height="366" alt="Image" src="https://github.com/user-attachments/assets/55c484c8-b87c-4670-83ba-eae6485c929c" />
+  
 [⬅️ Previous](OCP-Preparation.md) | [🏠 Home](readme.md) | [➡️ Next](CIS-Deployment.md)
 

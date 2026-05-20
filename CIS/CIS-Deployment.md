@@ -69,7 +69,7 @@ To allow CIS to create the routes correctly, we need to map the Calico block all
 <img width="1713" height="608" alt="Image" src="https://github.com/user-attachments/assets/b035a142-50d2-4393-8736-133e168879a8" />
 
 ---
-### Prepare Automatic routing in k8s cluster
+### Change Calico Block Size (Need deep assesment in production)
 
 Routing can be manually configured on BIG-IP. However, with a /26 segment (the default Calico setting), the allocated CIDR ranges can change dynamically. These changes may not be reflected in the BIG-IP routing configuration, which can cause service disruption if traffic is forwarded through the wrong path.
 
@@ -78,8 +78,16 @@ In this procedure, one of the available options is to change the Calico segment 
 1. Check callico ip allocation
 
    ```bash
-   cd /home/cloud-user/CIS-Workshop
+   kubectl get blockaffinities.crd.projectcalico.org
    ```
+2. Change block size from /26 to /24
+   ```bash
+   kubectl edit ippool default-ipv4-ippool
+   ```
+   change blockSize: 26 to 24
+
+   edit : esc + i 
+   save : esc + :wq + enter
 
 ---
 ### Installing CIS Manually in OCP Cluster

@@ -1,10 +1,29 @@
-## CIS - OpenShift Workshop - CIS Deployment Guide
+## CIS Deployment Guide
 
 #### This document explains how to install CIS on k8s Cluster, Integrate to BigIP and Deploy Service with LTM as Ingress 
 
 ---
-### Installing CIS Manually in OCP Cluster
+### Prepare CIS environment in k8s cluster
+1. Clone the GitHub repository
+   ```bash
+   cd /home/cloud-user/CIS-Workshop
+   ```
+2. 
 
+---
+### Prepare Automatic routing in k8s cluster
+
+Routing can be manually configured on BIG-IP. However, with a /26 segment (the default Calico setting), the allocated CIDR ranges can change dynamically. These changes may not be reflected in the BIG-IP routing configuration, which can cause service disruption if traffic is forwarded through the wrong path.
+
+In this procedure, one of the available options is to change the Calico segment size from the default /26 to /23 or /24 to reduce the frequency of dynamic CIDR allocation changes.
+
+1. Check callico ip allocation
+
+   ```bash
+   cd /home/cloud-user/CIS-Workshop
+   ```
+
+---
 ### Installing CIS Manually in OCP Cluster
 
 1. Go to ocp-provisioner WebShell tab in chrome  and go to working Directory. We have open this tab in preparation steps

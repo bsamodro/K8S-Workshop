@@ -38,26 +38,29 @@ su - ubuntu
    ```bash
    kubectl apply -f K8S-Workshop/CIS/BigIPCtrl/k8s-bigip-ctlr.yaml
    ```
-3. Check CIS log
+3. Check CIS realtime log
    ```bash
    kubectl logs -f -l app=k8s-bigip-ctlr-deployment -n kube-system --prefix=true
    ```
    Ctrl + C to stop logs
-   or
-   ```bash
-   kubectl logs -l app=k8s-bigip-ctlr-deployment -n kube-system --prefix=true
-   ```
 4. Check pod status
    ```bash
    kubectl get pods -n kube-system
    ```
-Notes you will see this logs 
+5. Check again all logs to see all messages
+   ```bash
+   kubectl logs -l app=k8s-bigip-ctlr-deployment -n kube-system  --prefix=true --tail=500 
+   ```
+Note that you may see logs similar to the following
+[pod/k8s-bigip-ctlr-deployment-c9d6949b8-mb2dl/k8s-bigip-ctlr] 2026/05/20 15:12:29 [DEBUG] podCIDR is not found on node k8s-worker2 so not adding the static route for node
+This indicates that CIS is unable to detect the Calico block allocation information. As a result, CIS cannot automatically provision the required static routes on BIG-IP.
+To allow CIS to create the routes correctly, we need to map the Calico block allocation into the Kubernetes podCIDR field using the following configuration.
 
-which means CIS cannot see Calico Block Allocation thus CIS cannot provision route in bigip
-to make CIS able to add route, we need to label map calico block ip into podCIDR using folowing
-
-5. Run this Script 
-   
+5. Run this Script
+   ```bash
+   chmod +x ~/K8S-Workshop/CIS/sync-podcidr.sh
+   ~/K8S-Workshop/CIS/sync-podcidr.sh
+   ```
 
 ---
 ### Prepare Automatic routing in k8s cluster

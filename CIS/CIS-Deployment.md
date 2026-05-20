@@ -86,8 +86,9 @@ In this procedure, one of the available options is to change the Calico segment 
    ```
    change blockSize: 26 to 24
 
-   edit : esc + i 
-   save : esc + :wq + enter
+   to edit : esc + i
+   
+   to save : esc + :wq + enter
 
 ---
 ### Installing CIS Manually in OCP Cluster

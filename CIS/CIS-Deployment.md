@@ -26,7 +26,7 @@ su - ubuntu
    ```
 4. Create the kubernetes secret with BIG IP credentials
    ```bash
-   kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=f5demo#1 --from-literal=url=<10.1.10.7
+   kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=f5demo#1 --from-literal=url=10.1.10.7
    ```
 
 ---

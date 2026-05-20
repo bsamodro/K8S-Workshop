@@ -1,0 +1,29 @@
+Deploy and Validate Arcadia Application
+
+#### This document explains how to Test Arcadia Application that has beed deployed using CIS
+
+---
+###  Deploy Arcadia Service in k8s cluster
+
+1. Apply Arcadia Deployment yaml
+   ```bash
+   oc create -f Arcadia/arcadia-deployment.yaml 
+   ```
+5. Review Arcadia Service yaml
+   ```bash
+   cat Arcadia/arcadia-svc.yaml
+   ```
+6. Apply Arcadia Service yaml
+   ```bash
+   oc create -f Arcadia/arcadia-svc.yaml
+   ```
+7. Review Arcadia ConfigMap yaml
+   ```bash
+   cat Arcadia/arcadia-cm.yaml
+   ```
+6. Apply Arcadia Configmap yaml
+   ```bash
+   oc create -f  Arcadia/arcadia-cm.yaml
+   ```
+---
+###  Deploy Arcadia Service in OCP Cluster

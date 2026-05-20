@@ -1,0 +1,27 @@
+Deploy and Validate Arcadia Application
+
+#### This document explains how to Test Arcadia Application that has beed deployed using CIS
+
+---
+##  Deploy Arcadia Service in k8s Cluster
+
+On the k8s-master1 webshell, run the following command:
+
+1. Apply Arcadia Deployment yaml
+   ```bash
+   kubectl apply -f ~/K8S-Workshop/CIS/Arcadia/arcadia-deployment.yaml 
+   ```
+2. Apply Arcadia Service yaml
+   ```bash
+   kubectl apply -f ~/K8S-Workshop/CIS/Arcadia/arcadia-svc.yaml
+   ```
+3. Apply Arcadia Configmap yaml
+   ```bash
+   kubectl apply -f ~/K8S-Workshop/CIS/Arcadia/arcadia-cm.yaml 
+   ```
+4. Check log 
+   ```bash
+   kubectl logs -l app=k8s-bigip-ctlr-deployment -n kube-system  --prefix=true --tail=500 
+   ```
+---
+###  Deploy Arcadia Service in OCP Cluster

@@ -36,5 +36,8 @@ On TMUI GUI check network map and new arcadia partition
 <img width="645" height="506" alt="Image" src="https://github.com/user-attachments/assets/744c1746-5385-4ec5-8d09-14f5b70d45d2" />
 
 On Client Firefox open https://arcadia.demo
+
 <img width="486" height="533" alt="Image" src="https://github.com/user-attachments/assets/54cb0c43-db27-4567-83f1-bc06574769b4" />
 
+---
+[⬅️ Previous](CIS-Deployment.md) | [🏠 Home](readme.md) 

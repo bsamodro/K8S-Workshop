@@ -38,7 +38,7 @@ su - ubuntu
    ```
 2. Deploy CIS yaml
    ```bash
-   kubectl apply -f K8S-Workshop/CIS/BigIPCtrl/k8s-bigip-ctlr.yaml
+   kubectl apply -f ~/K8S-Workshop/CIS/BigIPCtrl/k8s-bigip-ctlr.yaml
    ```
 3. Check CIS realtime log
    ```bash

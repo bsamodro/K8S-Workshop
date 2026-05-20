@@ -4,7 +4,7 @@
 
 2. [Deploy CIS](CIS-Deployment.md)
 
-3. [Test and Validate Arcadia Apps](Arcadia-ValidationAndTest.md)
+3. [Test and Validate Arcadia Apps](Arcadia-Deployment.md)
 
 ---
 ### Environment
@@ -32,4 +32,4 @@ How to validade AS3 in config map
 - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
 
 ---
-[➡️ Next](OCP-Preparation.md)
+[➡️ Next](BigIP-Preparation.md)

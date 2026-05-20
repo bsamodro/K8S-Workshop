@@ -3,6 +3,7 @@
 #### This document explains how to install CIS on k8s Cluster, Integrate to BigIP and Deploy Service with LTM as Ingress 
 ---
 Login to k8s-master1 - Webshell
+<img width="475" height="454" alt="Image" src="https://github.com/user-attachments/assets/329b4b05-ebaa-4cff-96ec-ebbc5a0d499a" />
 
 login as ubuntu
 ```bash

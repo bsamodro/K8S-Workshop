@@ -17,8 +17,8 @@
 | Hostname           | HostIP     | Access  | Username | Password     |
 |--------------------|------------|---------|----------|--------------|
 | k8s-Master1        | 10.1.1.4   | webshell|          |              |
-| bigipA.f5demo.id   | 10.1.1.5   | TMUI    | admin    | f5demo#1     |
-| bigipB.f5demo.id   | 10.1.1.11  | TMUI    | admin    | f5demo#1     |
+| bigipA.f5demo.id   | 10.1.1.7   | TMUI    | admin    | f5demo#1     |
+| client             | 10.1.1.11  | firefox |          |              |
 
 
 - TMOS Version : 17.1

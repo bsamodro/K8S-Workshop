@@ -25,5 +25,15 @@ CIS can add a static route on the BIG-IP to reach k8s pod services via the k8s n
 <img width="1023" height="686" alt="Image" src="https://github.com/user-attachments/assets/6a8513de-2c85-465b-bf12-6d3ca8eeb859" />
 
 ---
+
+### Create a Share Object : WAF Policy and NAT Pool. These will be allocated for VS that provisioned by CIS
+
+- Click Security -> Application Security -> Security Policies -> Policies List
+  
+- Configure Policy :
+- Policy Name : arcadia-waf
+- Policy Template : Rapid Deployment Policy
+- Click Save
+
 [⬅️ Previous](OCP-Preparation.md) | [🏠 Home](readme.md) | [➡️ Next](CIS-Deployment.md)
 

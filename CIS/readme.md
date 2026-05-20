@@ -4,7 +4,7 @@
 
 2. [Deploy CIS](CIS-Deployment.md)
 
-3. [Test and Validate Arcadia Apps](Arcadia-Deployment.md)
+3. [Deploy and Validate Arcadia Apps](Arcadia-Deployment.md)
 
 ---
 ### Environment

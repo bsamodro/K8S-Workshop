@@ -1,8 +1,3 @@
-### Lab Diagram
-
-![Image](https://github.com/user-attachments/assets/35e5a105-44b4-42cd-a4fc-e0513df47be9)
-
----
 ### Step and Procedure for handson
 
 1. [Prepare BigIP](BigIP-Preparation.md)

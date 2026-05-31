@@ -23,7 +23,7 @@ su - ubuntu
    ```
 3. Optionally, Install Custom Resource Definitions for CIS Controller if you are using custom resources 
    ```bash
-   export CIS_VERSION=v2.20.4
+   export CIS_VERSION=v2.20.3
    kubectl create -f https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/${CIS_VERSION}/docs/config_examples/customResourceDefinitions/customresourcedefinitions.yml
    ```
 4. Create the kubernetes secret with BIG IP credentials

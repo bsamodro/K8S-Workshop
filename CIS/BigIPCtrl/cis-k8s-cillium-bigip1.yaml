@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cis-k8s-cillium-bigip1
+  namespace: kube-system
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cis-k8s-cillium-bigip1
+
+  template:
+    metadata:
+      labels:
+        app: cis-k8s-cillium-bigip1
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+
+      volumes:
+        - name: bigip-creds
+          secret:
+            secretName: f5-bigip-ctlr-login
+
+      containers:
+        - name: k8s-bigip-ctlr
+          image: "f5networks/k8s-bigip-ctlr:2.20.3"
+
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 120
+            successThreshold: 1
+            timeoutSeconds: 15
+
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 120
+            successThreshold: 1
+            timeoutSeconds: 15
+
+          volumeMounts:
+            - name: bigip-creds
+              mountPath: "/tmp/creds"
+              readOnly: true
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ "ALL" ]
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+
+          command: ["/app/bin/k8s-bigip-ctlr"]
+
+          args: [
+            "--credentials-directory=/tmp/creds",
+            "--bigip-partition=k8s-cis",
+            "--pool-member-type=nodeport",
+            #"--pool-member-type=cluster",
+            #"--static-routing-mode=true",
+            "--insecure=true",
+            "--custom-resource-mode=true",
+            "--log-as3-response=true",
+            "--log-level=DEBUG"
+          ]
+
+      serviceAccountName: bigip-ctlr
